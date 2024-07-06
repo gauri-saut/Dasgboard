@@ -13,7 +13,6 @@ import Table from "./Comman/Table";
 
 const App = () => {
   return (
-<<<<<<< HEAD
     <Router>
       <div className="flex flex-col h-screen">
         <Header />
@@ -36,16 +35,3 @@ const App = () => {
 };
 
 export default App;
-=======
-    <>
-    <Header/>
-   <Main/>
-    
-    <Sidebar/>
-    </>
-  
-  )
-}
-
-export default App
->>>>>>> c0842c82f83fc4f0a7cfed0c08d3ab4072c4c905
