@@ -3,7 +3,10 @@ import React from 'react'
 const Boxmodel = () => {
   return (
 
+<<<<<<< HEAD
 <div>
+=======
+>>>>>>> c0842c82f83fc4f0a7cfed0c08d3ab4072c4c905
 
     <div className='flex bg-slate-400 'style={{width:"100%", justifyContent:'space-between', }}>
 
@@ -38,6 +41,7 @@ const Boxmodel = () => {
 
     </div>
 
+<<<<<<< HEAD
 
 
 
@@ -48,6 +52,8 @@ const Boxmodel = () => {
 </div>
 <div className='m-10 p-2 bg-slate-300 h-[25rem] w-[50rem] rounded-2xl'> hello2</div>
 
+=======
+>>>>>>> c0842c82f83fc4f0a7cfed0c08d3ab4072c4c905
     </div>
   )
 }
