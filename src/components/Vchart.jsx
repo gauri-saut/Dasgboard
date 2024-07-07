@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Chart from 'react-apexcharts';
 
-const DemoChart = () => {
+const VChart = () => {
   const [chartData, setChartData] = useState({
     options: {
       chart: {
@@ -13,19 +13,17 @@ const DemoChart = () => {
       }
     },
     series: [{
-      name: 'Number of products',
+      name: 'Monthly Cash',
       data: []
     }]
   });
 
   useEffect(() => {
-    axios.get('https://fakestoreapi.com/products')
+    axios.get('https://668a360d2c68eaf3211c3545.mockapi.io/Monthlycash')
       .then(response => {
-        const products = response.data;
-        const categories = [...new Set(products.map(product => product.category))];
-        const categoriesCount = categories.map(category =>
-          products.filter(product => product.category === category).length
-        );
+        const data = response.data[0]; // Assuming the response is an array with a single object
+        const months = Object.keys(data);
+        const cashValues = Object.values(data);
 
         setChartData({
           options: {
@@ -33,16 +31,16 @@ const DemoChart = () => {
               id: 'basic-bar'
             },
             xaxis: {
-              categories: categories
+              categories: months
             }
           },
           series: [{
-            name: 'Number of products',
-            data: categoriesCount
+            name: 'Monthly Cash',
+            data: cashValues
           }]
         });
       })
-      .catch(error => console.log('error fetching data', error));
+      .catch(error => console.log('Error fetching data', error));
   }, []);
 
   return (
@@ -61,12 +59,4 @@ const DemoChart = () => {
   );
 };
 
-const Vchart = () => {
-  return (
-    <div>
-      <DemoChart />
-    </div>
-  );
-}
-
-export default Vchart;
+export default VChart;

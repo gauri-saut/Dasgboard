@@ -11,36 +11,34 @@ const DemoChart = () => {
   });
 
   useEffect(() => {
-    axios.get('https://fakestoreapi.com/products')
+    axios.get('https://668a20dc2c68eaf3211c01c0.mockapi.io/order/Cashcollection')
       .then(response => {
-        const products = response.data;
-        const categories = [...new Set(products.map(product => product.category))];
-        const categoriesCount = categories.map(category =>
-          products.filter(product => product.category === category).length
-        );
+        const data = response.data;
+
+        // Extracting days and amounts from the fetched data
+        const days = Object.keys(data[0]); // ["sunday", "monday", "tuesday", ...]
+        const amounts = Object.values(data[0]); // [30000, 45620, 35000, ...]
 
         setChartData({
           options: {
-            labels: categories,
+            labels: days,
           },
-          series: categoriesCount
+          series: amounts
         });
       })
-      .catch(error => console.log('error fetching data', error));
+      .catch(error => console.log('Error fetching data:', error));
   }, []);
 
   return (
     <div className="App">
       <div className="row">
         <div className="mixed-chart">
-         
           <Chart
             options={chartData.options}
             series={chartData.series}
             type='donut'
             width="500"
           />
-          
         </div>
       </div>
     </div>
