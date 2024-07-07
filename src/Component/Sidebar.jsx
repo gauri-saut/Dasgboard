@@ -3,13 +3,18 @@ import { CiBoxList, CiPlane, CiFileOn, CiUser, CiForkAndKnife, CiWavePulse1, CiC
 import { Link } from 'react-router-dom';
 
 
+
+
 const Sidebar = () => {
   return (
     <>
       <div className='absolute top-0 left-0 m-2 p-4 flex items-center text-center text-xl text-black w-1/6'>
         <CiForkAndKnife className='mr-2' />
        
+
        <Link to="/Bistro">
+
+
 
    <span>Bistro</span>
        </Link>
@@ -34,7 +39,7 @@ const Sidebar = () => {
         <div className='flex items-center text-black my-4'>
           <CiFileOn className='mr-2' />
         
-        <Link to="/Menues">
+        <Link to="/Menue">
         
           <span>Menues</span>
         </Link>
