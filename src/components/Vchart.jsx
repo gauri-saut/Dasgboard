@@ -19,7 +19,7 @@ const VChart = () => {
   });
 
   useEffect(() => {
-    axios.get('https://668a360d2c68eaf3211c3545.mockapi.io/Monthlycash')
+    axios.get('https://668a6df82c68eaf3211cc988.mockapi.io/monthly')
       .then(response => {
         const data = response.data[0]; // Assuming the response is an array with a single object
         const months = Object.keys(data);

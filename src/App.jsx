@@ -12,6 +12,7 @@ import Menue from './Comman/Menue';
 import Table from './Comman/Table';
 import Login from './Component/Login';
 import ProtectedRoute from './Component/ProtectedRoute';
+import Customer from './Comman/Customer';
 
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -31,15 +32,18 @@ const App = () => {
                   <Boxmodel />
                 </ProtectedRoute>
               }
+
             />
+
             <Route
               path="/cart"
               element={
                 <ProtectedRoute isAuthenticated={isAuthenticated}>
                   <Main />
                 </ProtectedRoute>
-              }
-            />
+              } />
+
+             
             <Route
               path="/CustomerReviews"
               element={
@@ -88,7 +92,19 @@ const App = () => {
                 </ProtectedRoute>
               }
             />
+         
+
+          <Route
+              path="/Customer"
+              element={
+                <ProtectedRoute isAuthenticated={isAuthenticated}>
+                  <Customer />
+                </ProtectedRoute>
+              }
+            />
           </Routes>
+
+          
         </div>
       </div>
     </Router>

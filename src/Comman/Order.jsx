@@ -29,38 +29,84 @@ const Order = () => {
   };
 
   return (
-    <div>
+    <div style={{ width: '100%', padding: '20px', boxSizing: 'border-box' }}>
       <h1>Recent Order Requests</h1>
 
-      <button onClick={() => setShowForm(!showForm)}>Add New Order</button>
+      <button 
+        style={{
+          backgroundColor: '#3182CE',
+          color: 'white',
+          padding: '10px 20px',
+          border: 'none',
+          borderRadius: '5px',
+          marginBottom: '10px',
+          cursor: 'pointer',
+        }}
+        onClick={() => setShowForm(!showForm)}
+      >
+        {showForm ? 'Close Form' : 'Add New Order'}
+      </button>
 
       {showForm && (
-        <div>
-          <input type="text" name="orderName" placeholder="Order Name" value={newOrder.orderName} onChange={handleInputChange} />
-          <input type="text" name="customerName" placeholder="Customer Name" value={newOrder.customerName} onChange={handleInputChange} />
-          <input type="text" name="price" placeholder="Price" value={newOrder.price} onChange={handleInputChange} />
-          <button onClick={addOrder}>Submit</button>
+        <div style={{ marginBottom: '20px' }}>
+          <input
+            type="text"
+            name="orderName"
+            placeholder="Order Name"
+            value={newOrder.orderName}
+            onChange={handleInputChange}
+            style={{ padding: '10px', marginRight: '10px', borderRadius: '5px', border: '1px solid #ccc' }}
+          />
+          <input
+            type="text"
+            name="customerName"
+            placeholder="Customer Name"
+            value={newOrder.customerName}
+            onChange={handleInputChange}
+            style={{ padding: '10px', marginRight: '10px', borderRadius: '5px', border: '1px solid #ccc' }}
+          />
+          <input
+            type="text"
+            name="price"
+            placeholder="Price"
+            value={newOrder.price}
+            onChange={handleInputChange}
+            style={{ padding: '10px', marginRight: '10px', borderRadius: '5px', border: '1px solid #ccc' }}
+          />
+          <button
+            onClick={addOrder}
+            style={{ backgroundColor: '#3182CE', color: 'white', padding: '10px 20px', borderRadius: '5px', border: 'none', cursor: 'pointer' }}
+          >
+            Submit
+          </button>
         </div>
       )}
 
-      <table>
+      <table style={{ width: '100%', borderCollapse: 'collapse' }}>
         <thead>
           <tr>
-            <th>Order Name</th>
-            <th>Customer Name</th>
-            <th>Price</th>
-            <th>Order Status</th>
+            <th style={{ border: '1px solid #ccc', padding: '10px', backgroundColor: '#EDF2F7' }}>Order Name</th>
+            <th style={{ border: '1px solid #ccc', padding: '10px', backgroundColor: '#EDF2F7' }}>Customer Name</th>
+            <th style={{ border: '1px solid #ccc', padding: '10px', backgroundColor: '#EDF2F7' }}>Price</th>
+            <th style={{ border: '1px solid #ccc', padding: '10px', backgroundColor: '#EDF2F7' }}>Order Status</th>
           </tr>
         </thead>
         <tbody>
           {orders.map((order, index) => (
             <tr key={index}>
-              <td>{order.orderName}</td>
-              <td>{order.customerName}</td>
-              <td>{order.price}</td>
-              <td>
+              <td style={{ border: '1px solid #ccc', padding: '10px' }}>{order.orderName}</td>
+              <td style={{ border: '1px solid #ccc', padding: '10px' }}>{order.customerName}</td>
+              <td style={{ border: '1px solid #ccc', padding: '10px' }}>{order.price}</td>
+              <td style={{ border: '1px solid #ccc', padding: '10px' }}>
                 <button 
-                  className={`bg-${order.status === 'Pending' ? 'red' : 'green'}-300 rounded-3xl m-2`}
+                  style={{
+                    backgroundColor: order.status === 'Pending' ? '#FC8181' : '#68D391',
+                    color: 'white',
+                    padding: '8px 16px',
+                    borderRadius: '5px',
+                    border: 'none',
+                    cursor: 'pointer',
+                  }}
                   onClick={() => updateStatus(index)}
                 >
                   {order.status}

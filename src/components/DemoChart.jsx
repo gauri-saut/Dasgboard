@@ -11,7 +11,7 @@ const DemoChart = () => {
   });
 
   useEffect(() => {
-    axios.get('https://668a20dc2c68eaf3211c01c0.mockapi.io/order/Cashcollection')
+    axios.get('https://668a6df82c68eaf3211cc988.mockapi.io/data')
       .then(response => {
         const data = response.data;
 
